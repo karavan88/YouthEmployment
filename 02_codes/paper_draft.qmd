@@ -1,0 +1,47 @@
+---
+title: "Do Non-Cognitive Skills Affect Employment Outcomes During the School-to-Work Transition?"
+author: "Garen Avanesian, Marina Borovskaya, Valery Egorova, Marina Masych, Lyudmila Dikaya"
+format: pdf
+editor: visual
+bibliography: references.bib
+---
+
+<https://www.ilo.org/publications/characterizing-school-work-transitions-young-men-and-women-evidence-ilo>
+
+https://academic.oup.com/workar/article/9/3/239/7140451
+
+<https://www.ilo.org/resource/school-work-transition-survey-swts>
+
+## Introduction
+
+The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. This transition is influenced by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Recent studies point out that non-cognitive skills refer to one of the critical components in this transition [@lerman2013; @glewwe2017; @zudina2022; @ripamonti2023; @avanesian2024]. These skills encompass characteristics of personality not directly tied to cognitive abilities, including motivation, self-control, and social skills. Research increasingly suggests that non-cognitive skills play a crucial role in determining success in the labor market, influencing both employment opportunities and earning potential.
+
+## Data
+
+descriptive statistics table
+
+age, sex, area of residence, ses quintile, edu level
+
+## Econometric Verification Strategy
+
+## Results
+
+### Non-Cognitive Skills of Youth
+
+Here we need a table or a chart with differences in NCS by employment status
+
+### Socio-Demographic Profile of Employed Youth
+
+### Effect of Non-Cognitive Skills on Employment Outcomes
+
+We need to have two mlm models
+
+1\)
+
+## Discussion
+
+### Research Limitations
+
+## Policy Implications
+
+## Conclusion

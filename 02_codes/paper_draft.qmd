@@ -1,5 +1,5 @@
 ---
-title: "Do Non-Cognitive Skills Affect Employment Outcomes During the School-to-Work Transition?"
+title: "Do Non-Cognitive Skills Affect Employment Outcomes of Youth During the School-to-Work Transition?"
 author: "Garen Avanesian, Marina Borovskaya, Valery Egorova, Marina Masych, Lyudmila Dikaya"
 format: pdf
 editor: visual
@@ -16,6 +16,12 @@ https://academic.oup.com/workar/article/9/3/239/7140451
 
 The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. This transition is influenced by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Recent studies point out that non-cognitive skills refer to one of the critical components in this transition [@lerman2013; @glewwe2017; @zudina2022; @ripamonti2023; @avanesian2024]. These skills encompass characteristics of personality not directly tied to cognitive abilities, including motivation, self-control, and social skills. Research increasingly suggests that non-cognitive skills play a crucial role in determining success in the labor market, influencing both employment opportunities and earning potential.
 
+Research questions
+
+1\) do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills?
+
+2\) does this effect is heterogeneous with respect to socio-economic status? in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
+
 ## Data
 
 descriptive statistics table
@@ -24,13 +30,29 @@ age, sex, area of residence, ses quintile, edu level
 
 ## Econometric Verification Strategy
 
+The major issue with respect to predict effects of non-cognitive skills on employment outcomes of youth during school-to-work transition refers to unobserved heterogeneity present due to the multiple factors.
+
+1\) The age range of the study is 15-29 in accordance with the ILO definition of the school-to-work transition. however we understand that there are many factors that might not be captured by the model but which affect baseline probability of employment due to age. while we can account for level of completed education, there could be a number of issues in terms of labor market entry for young workforce, including young professionals.
+
+2\) Russia is a big federal state, and there is a number of unobserved, systemic factors of labor demand and supply that affect employment at the regional level. In other words, country regions establish huge heterogeneity in employment of youth.
+
+3\) Finally, existing structures of socio-economic inequality make substantial footprint on school-to-work transition of young people, with youth from the richer households having access to better schools, parents being included in professional networks , which results in having more default options for youth to find a job. with that regard, the poor , who experience greater risks of lacking access to social lifts to elevate their status in the society, might also experience higher risks of unemployment either due to the lower human capital they possess or due to other factors. with that regard, for the purpose of labor policy it is essentially important to understand which non-cognitive skills could help economically disadvantaged youth have access to jobs.
+
+These issues can be well resolved by the multilevel (mixed-effect) regression model.
+
+describe briefly what it is and what are the advantages of this model in the context of research question.
+
+we built two mixed effect models to address the research questions.
+
+the first one regresses binary variable employment on (fixed part) sex, area of residence, parental education, parental occupation (?), NCS
+
 ## Results
 
 ### Non-Cognitive Skills of Youth
 
 Here we need a table or a chart with differences in NCS by employment status
 
-### Socio-Demographic Profile of Employed Youth
+### Socio-Demographic Profile of Employed Youth - ???
 
 ### Effect of Non-Cognitive Skills on Employment Outcomes
 

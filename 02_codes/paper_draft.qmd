@@ -12,23 +12,49 @@ https://academic.oup.com/workar/article/9/3/239/7140451
 
 <https://www.ilo.org/resource/school-work-transition-survey-swts>
 
-## Introduction
+## Introduction 
+
+*Masych, Dikaya, Avanesian*
 
 The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. This transition is influenced by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Recent studies point out that non-cognitive skills refer to one of the critical components in this transition [@lerman2013; @glewwe2017; @zudina2022; @ripamonti2023; @avanesian2024]. These skills encompass characteristics of personality not directly tied to cognitive abilities, including motivation, self-control, and social skills. Research increasingly suggests that non-cognitive skills play a crucial role in determining success in the labor market, influencing both employment opportunities and earning potential.
 
-Research questions
+Нужно дать обзор литературы, в которой некогнитивные навыки и личностные характеристики влияют на трудоустройство, особенно с прицелом на молодежь
 
-1\) do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills?
+Самая ранняя статья Рожковой (Вопросы Экономики) про отдачу от неекогнитивных навыков содержит блок про трудоустройство
 
-2\) does this effect is heterogeneous with respect to socio-economic status? in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
+То же самое касается препринта Гимпельсона, Зудиной и Капелюшникова.
+
+Это все примеры про Россию.
+
+Мы также можем сдкелать ссылки на статью Зудиной по НИТ, и нашу статью.
+
+Но примеры нельзя ограничивать Россией и нужна хорошая международная литература - частично она уже упомянута в нашей статье.
+
+Где-то во введении нужно также дать контекст и посмотреть данные Росстата по молодежной безработице в России, где из регионов она самая низкая и где самая высокая. Если молодежной безработицы нет, то можно просто безработицу. Несколько потенциальных источников
+
+<https://cyberleninka.ru/article/n/molodezhnaya-bezrabotitsa-v-rossii-prichiny-i-puti-snizheniya/viewer>
+
+<https://vital.lib.tsu.ru/vital/access/services/Download/vtls:000587153/SOURCE1>
+
+Не нужно много о безработице, но необходимо дать контекст
+
+Current study explores the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. Based on data of Russia Longitudinal Monitoring Survey (RLMS), it aims to address the following research question: do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills? The consideration of this research question is guided by supplementary questions. First of all, the study aims to explore if the effect of non-cognitive skills on employment outcones is heterogeneous with respect to socio-economic status of an individual. in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
+
+-   calculate random slope terms for different completed education levels (make a separate regression model for each education level)
 
 ## Data
+
+*Egorova*
+
+RLMS data for 2019 is to be used. Sample 15-29 years old as it aligns with ILO definition for school-to-work transition.
 
 descriptive statistics table
 
 age, sex, area of residence, ses quintile, edu level
 
-## Econometric Verification Strategy
+## Methodology
+
+*Avanesian*
 
 The major issue with respect to predict effects of non-cognitive skills on employment outcomes of youth during school-to-work transition refers to unobserved heterogeneity present due to the multiple factors.
 
@@ -48,22 +74,32 @@ the first one regresses binary variable employment on (fixed part) sex, area of 
 
 ## Results
 
-### Non-Cognitive Skills of Youth
+### Non-Cognitive Skills of Youth (NCS) 
+
+*Egorova*
 
 Here we need a table or a chart with differences in NCS by employment status
 
-### Socio-Demographic Profile of Employed Youth - ???
-
 ### Effect of Non-Cognitive Skills on Employment Outcomes
 
-We need to have two mlm models
+*Avanesian*
 
-1\)
+We need to have three regression models
 
 ## Discussion
 
+*Masych, Dikaya*
+
 ### Research Limitations
+
+*Avanesian*
 
 ## Policy Implications
 
+*Masych*
+
 ## Conclusion
+
+*Avanesian*
+
+## References

@@ -12,7 +12,7 @@ https://academic.oup.com/workar/article/9/3/239/7140451
 
 <https://www.ilo.org/resource/school-work-transition-survey-swts>
 
-## Introduction 
+## Introduction
 
 *Masych, Dikaya, Avanesian*
 
@@ -38,7 +38,7 @@ The transition from school to work represents a pivotal phase in the lives of yo
 
 Не нужно много о безработице, но необходимо дать контекст
 
-Current study explores the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. Based on data of Russia Longitudinal Monitoring Survey (RLMS), it aims to address the following research question: do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills? The consideration of this research question is guided by supplementary questions. First of all, the study aims to explore if the effect of non-cognitive skills on employment outcones is heterogeneous with respect to socio-economic status of an individual. in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
+Current study explores the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. Based on data of Russia Longitudinal Monitoring Survey (RLMS), it aims to address the following research question: do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills? The consideration of this research question is guided by supplementary questions. First of all, the study aims to explore if the effect of non-cognitive skills on employment outcomes is heterogeneous with respect to socio-economic status of an individual. in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
 
 -   calculate random slope terms for different completed education levels (make a separate regression model for each education level)
 
@@ -74,7 +74,7 @@ the first one regresses binary variable employment on (fixed part) sex, area of 
 
 ## Results
 
-### Non-Cognitive Skills of Youth (NCS) 
+### Non-Cognitive Skills of Youth (NCS)
 
 *Egorova*
 

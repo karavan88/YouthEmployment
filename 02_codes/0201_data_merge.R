@@ -14,7 +14,7 @@ hh        <- read_sav("01_input_data/r28hall_61.sav")
 
 data_hh <-
   hh %>%
-  select(xb1.o, xf14, xa3, xredid_h, xid_h) %>%
+  select(xb1.o, xf14, xa3, xredid_h, xid_h, region) %>%
   replace_with_na(replace = list(xf14 = c(99999997, 99999998, 99999999))) %>%
   mutate(x = xf14/xb1.o,
          number_of_fmem = xb1.o,
@@ -27,7 +27,7 @@ data_hh <-
                              windex >= 0.61 & windex <= 0.80 ~ 4,
                              windex > 0.8  ~ 5,
                              T ~ as.numeric(NA))) %>%
-  select(windex5, family, Income, windex, number_of_fmem, xredid_h, xa3, xid_h, windex, x)
+  select(windex5, family, Income, windex, number_of_fmem, xredid_h, xa3, xid_h, windex, x, region)
 
 data_hi <- 
   hi %>%
@@ -51,7 +51,7 @@ data_hi <-
                            x_diplom == 4 ~"2. School",
                            x_diplom == 5 ~"3. Professional school",
                            x_diplom == 6 ~ "4. Higher education"),
-         working  = ifelse(xj1 == 1, 1, 0),
+         working  = ifelse(xj1 %in% c(1:4), 1, 0), # dep var
          life_satis = xj65,
          self_p_SES = case_when(xj62 %in% c(1:3) ~ 1,
                                 xj62 %in% c(4:6) ~ 2,
@@ -61,21 +61,25 @@ data_hi <-
                                in_ptu_usec == 1  | in_tech == 1  | in_uni == 1  | in_postgrad == 1, 1, 0),
          months = case_when(!is.na(xj161.3m)  ~ xj161.3m/12, T ~0),
          exp = xj161.3y + months,
-         family = xh3, 
+         family_id = xh3, 
          seeking_empl = ifelse(xj81 == 1, 1, 0),
          salary = xj13.2) %>%
   select(idind, xredid_i, xid_h,  area, gender, age, h_edu, working, seeking_empl, exp, life_satis, 
-         self_p_SES, in_education, family, salary, x_inwgt, xj62) %>%
+         self_p_SES, in_education, family_id, salary, x_inwgt, xj62) %>%
   filter(age >= 15 & age <= 29)
 
 ses_data <-  
   data_hh %>%
-  select(xid_h, Income, number_of_fmem , windex, windex5,  x) %>%
+  select(xid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
   mutate(Income1 = ifelse(is.na(Income), median(Income, na.rm = T), Income),
          hh_pers = ifelse(is.na(number_of_fmem), median(number_of_fmem, na.rm = T), number_of_fmem)) %>%
   mutate(Income_pc = Income1/number_of_fmem) %>%
-  mutate(ses = ntile(Income_pc, 5)) %>%
-  select(xid_h, ses)
+  mutate(ses5 = ntile(Income_pc, 5),
+         ses10 = ntile(Income_pc, 10),
+         ses = case_when(ses10 %in% (1:4) ~ "1. Bottom 40%",
+                         ses10 %in% (5:9) ~ "2. Middle 50%",
+                         ses10 == 10 ~ "3. Top 10%")) %>%
+  select(xid_h, ses5, region, ses10, ses)
 
 openness <- c("o1", "o2", "o3") 
 con <- c("c1", "c2", "c3")
@@ -128,9 +132,10 @@ data_master <-
   left_join(ses_data) %>%
   mutate(ses = factor(ses),
          area = factor(area),
-         gender = factor(gender),
+         sex = factor(gender),
          h_edu = factor(h_edu)) %>% 
-  select(O, C, E, A, ES, G, ses, area, gender, age, h_edu, working, seeking_empl, exp, life_satis, 
-         self_p_SES, in_education, family, salary, x_inwgt, xj62) %>%
-  saveRDS(file.path(outData, "rlms_youth.rds"))
+  select(O, C, E, A, ES, G, ses5, area, sex, age, h_edu, working, seeking_empl, exp, life_satis, 
+         self_p_SES, in_education, family_id, salary, x_inwgt, xj62, region, ses)
+
+saveRDS(data_master, file.path(outData, "rlms_youth.rds"))
      

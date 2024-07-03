@@ -28,7 +28,9 @@ required_packages <- c("tidyverse",
                        "Hmisc",
                        "naniar",
                        "ggpubr",
-                       "DescTools")
+                       "DescTools", 
+                       "lme4",
+                       "ggeffects")
 
 
 # Function to check and install packages

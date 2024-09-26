@@ -1,105 +1,154 @@
 ---
-title: "Do Non-Cognitive Skills Affect Employment Outcomes of Youth During the School-to-Work Transition?"
-author: "Garen Avanesian, Marina Borovskaya, Valery Egorova, Marina Masych, Lyudmila Dikaya"
+title: "Do Non-Cognitive Skills Affect Employment Outcomes of Youth During the School-to-Work Transition?" 
+author: "Garen Avanesian, Southern Federal University"
 format: pdf
 editor: visual
 bibliography: references.bib
+biblio-style: bwl-FU
+citeproc: true
+csl: "apa-with-abstract.csl"
 ---
 
-<https://www.ilo.org/publications/characterizing-school-work-transitions-young-men-and-women-evidence-ilo>
+**Abstract**
 
-https://academic.oup.com/workar/article/9/3/239/7140451
+The study analyses the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during the school-to-work transition in Russia. Based on the data of the Russian Longitudinal Monitoring Survey collected in 20XX. Adopting a mixed-effects model approach, the study aims to estimate if the effect of non-cognitive skills on employment is heterogeneous due to the income level and completed level of education. The study finds out that......
 
-<https://www.ilo.org/resource/school-work-transition-survey-swts>
+**Key words:** non-cognitive skills, school-to-work transition, human capital, personality traits, big five, socio-economic status, mixed-effects models
 
-## Introduction 
+**JEL Codes:** I24, J24; C51
 
-*Masych, Dikaya, Avanesian*
+\newpage
 
-The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. This transition is influenced by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Recent studies point out that non-cognitive skills refer to one of the critical components in this transition [@lerman2013; @glewwe2017; @zudina2022; @ripamonti2023; @avanesian2024]. These skills encompass characteristics of personality not directly tied to cognitive abilities, including motivation, self-control, and social skills. Research increasingly suggests that non-cognitive skills play a crucial role in determining success in the labor market, influencing both employment opportunities and earning potential.
+## Introduction
 
-Нужно дать обзор литературы, в которой некогнитивные навыки и личностные характеристики влияют на трудоустройство, особенно с прицелом на молодежь
+The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. Importance of school-to-work transition is emphasized by the fact that it has long-term implications on socio-economic outcomes of individuals beyond youth period: while success in getting a first job that matches skills and expectations constitutes the further path to occupational success, early non-employment or poor transition to the world of work have long-lasting and negative implications on professional outcomes and beyond [@akkermans2021; @zacher2021; @baert2013; @luijkx2009; @verbruggen2015]. Moreover, the evidence points out that "association between having a high level of education and securing permanent full-time employment is weaker than expected" and level of education does not lead to the higher levels of job satisfaction [@chesters2020]. While there are many approaches to the definitions of school-to-work transition, their extensive survey is provided in [@blokker2023]. In this work, I rely on the one that is provided by ILO and defines it "as the passage of a young person (aged 15 to 29 years13) from the end of schooling to the first fixed-term or satisfactory employment" [@ilo2010, p. 4]. With that respect, each young person aged 15-29 is classified under the following categories: (1) transition not yet started for those who are either in school or not in school, inactive and with no intention to look for a job; (2) in transition, for those who are either unemployed, or in unsatisfactory self-employment temporary job, in unpaid family employment, or not in school but searching for a job; (3) transited, for those who are either in fixed-term employment or in satisfactory temporary or self-employment. While Sustainable Development Goals define youth as the population in the age 15 to 24 yeras old, ILO extended the upper bound to acknowledge that many young women and men remain in education till 24 years, and a wider age frame is required to capture employment experiences of youth post graduation.
 
-Самая ранняя статья Рожковой (Вопросы Экономики) про отдачу от неекогнитивных навыков содержит блок про трудоустройство
+The success of school-to-work transition, i.e., if a young person finds a decent job, is determined by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Those young people who, in addition to being unemployed, also do not study, refer to the most vulnerable group in the school-to-work transition and are defined as not in education, employment, or training (NEET). In the recent past, two events amplified vulnerability of youth in terms of labor market outcomes: the Great recession of 2009 and COVID-19 outbreak. The evidence points out that the financial crisis substantially challenged the integration of young people on the labor market all over the world [@tanveerchoudhry2012; @kelly2015; @verick2011; @verd2019; @montalvao2017]. Young people generally and youth employment particularly were put at the center of the global sustainable development agenda, summarized in Sustainable Development Goal 8 on decent jobs and economic growth.[^1] The global pandemic happened in 2019 amplified the labor market challenges faced by the global community. It "has heightened the level of uncertainty experienced by many young people worldwide and has complicated the developmental tasks associated with the transition to adulthood, including leaving home, completing education, and obtaining full-time employment" [@allmang2022]. The initial pandemic estimates suggested that young people were hit more than others by job loss, fell in working hours and substantial drops of income [@ilo2020youth]. It was estimated that as the result of the pandemic shock in 2020 globally youth employment rates fell by 8.7% in comparison to a 3.7 % drop for adults [@ilo2021].
 
-То же самое касается препринта Гимпельсона, Зудиной и Капелюшникова.
+[^1]: Namely, SDG8.6, which asks countries to report the share of youth Not in Education, Employment, or Training.
 
-Это все примеры про Россию.
+Though initially the problems of employment and labor market were in the primary interest of economists, the analysis of available academic literature illustrates that in the recent body of work, school-to-work transition was primarily in the focus of psyhologists, sociologists, and then economists, which marks the interdisciplinary nature of the topic [@blokker2023]. With different disciplines bringing various aspects of employment that were not conventionally regarded by economists, the recent studies point out that non-cognitive skills refer to one of the critical components in school-to-work transition [@lerman2013; @glewwe2017; @zudina2022; @ripamonti2023; @avanesian2024]. These skills encompass characteristics of personality not directly tied to cognitive abilities, including motivation, self-control, and social skills. Research increasingly suggests that non-cognitive skills play a crucial role in determining success in the labor market, influencing both employment opportunities and earning potential [@ferguson2011; @almlund2011a; @almlund2011].
 
-Мы также можем сдкелать ссылки на статью Зудиной по НИТ, и нашу статью.
+While the debates on the taxonomy of non-cognitive skills are still present in the literature, with different scholars using different characteristics in measuring their impact on socio-economic outcomes, a five-factor model of personality traits, also known as "Big Five Inventory" [@goldberg1990], became the most mainstream approach in economics. Under this framework, all the variations in personality can be summarized by five orthogonal and independent characteristics, which include openness to new experience, conscientiousness, extraversion, agreeableness, and neuroticism (emotional stability). The state of the art research in economics, psychology, and sociology points out that these personality factors are pivotal in determining the outcomes of youth during school-to-work transition. Evidence suggests that personality measured by big five taxonomy makes a strong impact on wellbeing of youth during the transition from graduate schools to the world of work [@buhl2007]. Another study based on analysis of the longitudinal data of 685 Dutch vocational training graduates showed that "extraversion and emotional stability were related to better job-search outcomes after graduation", and "some relations between Big Five personality traits and job-search outcomes were explained by social capital" regarded as "available resources through social relations" [@baay2014, p.739].
 
-Но примеры нельзя ограничивать Россией и нужна хорошая международная литература - частично она уже упомянута в нашей статье.
+A study that used the data on participants from early childhood to retirement, assessed the impact of personality traits across the life span on intrinsic (job satisfaction) and extrinsic career success (occupation status and income) [@judge1999]. It found out that conscientiousness positively predicts both intrinsic and extrinsic career success, while neuroticism negatively predicts extrinsic success. Overall, controlling for general cognitive ability, the study identified that even measured in early childhood, personality traits explain substantial portion of variance in career outcomes. Based on the data of the German Socio-Economic Panel (SOEP), another study estimated the effect of five personality factors on the duration of unemployment. The results highlight that such traits as conscientiousness and neuroticism have a strong impact on the instantaneous probability of finding a job, with the first affecting it positively, whereas the latter producing a negative effect [@uysal2011].
 
-Где-то во введении нужно также дать контекст и посмотреть данные Росстата по молодежной безработице в России, где из регионов она самая низкая и где самая высокая. Если молодежной безработицы нет, то можно просто безработицу. Несколько потенциальных источников
+A few studies were exploring the role of non-cognitive skills measured by BFI with respect to NEET youth, the most vulnerable cohort in the school-to-work transition. Based on Russian Longitudinal Monitoring Survey, they produced consistent findings that point out at the negative association between conscientiousness and NEET status, and positive relationship between neuroticism and NEET status [@avanesian2024; @zudina2022].
 
-<https://cyberleninka.ru/article/n/molodezhnaya-bezrabotitsa-v-rossii-prichiny-i-puti-snizheniya/viewer>
+Another research pillar explored the effect of non-cognitive skills on school-to-work transition beyond Big Five personality traits. The large body of work indicates the special role of self-efficacy in the school-to-work transition [@lent1999; @emirza2021; @tolentino2018; @masdonati2021; @grosemans2018]. The concept was introduced by psychologist A. Bandura who made it central in his social cognitive theory and defined it as the mechanism of personal agency that "refers to beliefs in one’s capabilities to organize and execute the courses of action required to manage prospective situations" [@self-eff1995, p. 2]. To put it simpler, this non-cognitive characteristics refers to personal belief in achieving a certain task or accomplishing a goal. With that respect, being convinced in the success of getting the job does not guarantee that a person will get it, but it produces the behaviors, actions and attitudes that in the end facilitate achievement of this goal. In that light, this concept is somewhat similar to another psychological concept of locus of control, as both are the expressions of personal agency. Defined as an extent to which people believe to have control of events in their life as opposed to external forces, this non-cognitive characteristic may partially help to compensate for socio-economic disadvantage regarding avoidance of economic inactivity and unemployment to some extent; however, it did not prove to provide protection against long-term economic inactivity, i.e. if an individual spent more than 6 months spent not in education, employment or training [@ng-knight2017].
 
-<https://vital.lib.tsu.ru/vital/access/services/Download/vtls:000587153/SOURCE1>
+Current study explores the effect of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. The Russian data highlights that youth has the highest unemployment rates: in 2022, they accounted for 26% for 15-19 year olds, 13.6% for 20-24 year olds, and 5.2% for 25-29 year olds. This is compared to 2.8% of unemployment for individuals in the age of 40 to 44 year olds, the lowest value in the sample [@rosstat2024, p. 122]. Further, out of all higher education graduates between 2020-2022 who find a job, for 24% the obtained employment does not match the received profession. Finally, the available national data evidence that the labor market in the country demonstrates unprecedented spatial segregation: with the 4% as a country's average unemployment in 2022, it varies in the range between 1.6% in Yamalo-Nenets Autonomous Okrug and 30% in Republic of Ingushetia.[^2]
 
-Не нужно много о безработице, но необходимо дать контекст
+[^2]: The Rosstat data were accessed on 24 September 2024, via the following link: <https://rosstat.gov.ru/storage/mediabank/Trud_3_15-s.xlsx>
 
-Current study explores the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. Based on data of Russia Longitudinal Monitoring Survey (RLMS), it aims to address the following research question: do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills? The consideration of this research question is guided by supplementary questions. First of all, the study aims to explore if the effect of non-cognitive skills on employment outcones is heterogeneous with respect to socio-economic status of an individual. in other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households
-
--   calculate random slope terms for different completed education levels (make a separate regression model for each education level)
+Based on data of Russia Longitudinal Monitoring Survey (RLMS), this study aims to address the following research question: do non-cognitive skills affect the probability of employment for youth during school-to-work transition? If yes, what are the most influential skills? The consideration of this research question is guided by supplementary questions. First of all, it aims to estimate which age in the school-to-work transition span is associated with the highest probability of getting a job. Further, the study explores if the effect of non-cognitive skills on employment outcomes is heterogeneous with respect to socio-economic status (SES) of an individual. In other words, which non-cognitive skills are the most important when it comes to the youth from the poorest households? This question could have potential implications on the labor market policy in terms of providing the young poor the channels of social mobility. Lastly, it is possible to hypothesize that different completed levels of education could produce heterogeneous returns on non-cognitive characteristics when it comes to the employment. In other words, the study wants to investigate if the higher levels of education completed are associated with the stronger effects of non-cognitive skills on employment.
 
 ## Data
 
-*Egorova*
-
-RLMS data for 2019 is to be used. Sample 15-29 years old as it aligns with ILO definition for school-to-work transition.
-
-descriptive statistics table
-
-age, sex, area of residence, ses quintile, edu level
+The data used in this study is comprised of two waves of Russia Longitudinal Monitoring Survey, the one in 2016 and 2019 as these years correspond to the ones when information on Big Five personality traits was collected. Sample those who were 15-29 years old in 2016 was extracted, which resulted in the fact that some of those respondents present in the 2016 wave were 33 years old in 2019. This was done for the completeness of the sample. It needs to be noted that the selected variables on non-cognitive skills substantially suffered from the missingness. If a respondent was present in both waves and responded provided a needed information in at least one of the waves, this value was used to impute and use in the estimation. This was done based on the assumption that personality traits are stable in the adulthood (ref). The final data accounted for XXXX observations in total, XXXX coming from the 2016 wave and XXXX from the 2019 wave. Out of them, XXXX observations were present in both waves. The summary statistics are presented on Table 1.
 
 ## Methodology
 
-*Avanesian*
+In order to estimate the effect of non-cognitive skills on employment outcomes, the study relies on the unbalanced panel, where substantial share of observations has only one record. In order to address the research questions that drive this investigation, mixed-effects regression model is adopted. It's primary advantage refers to the possibility to control endogeneity that occurs due to the unobserved heterogeneity at multiple levels.
 
-The major issue with respect to predict effects of non-cognitive skills on employment outcomes of youth during school-to-work transition refers to unobserved heterogeneity present due to the multiple factors.
+First, as the data is longitudinal and XX% of the sample has two records in time, the model adopts random intercept ID to separate between- and within-individual variation in employment and non-cognitive skills. Further, the age range of the study is 15-29 in accordance with the ILO definition of the school-to-work transition, but due to differences in baseline probability due to age, it would be the source of endogeneity at the individual level. Younger people, due to school enrollment, would be associated with low incidence rates of employment. With that regard, the model adopted to estimate the effect of non-cognitive skills on employment will have to isolate the effect of age. For that, the model adopts the random intercept for age, which allows the probability of employment to vary across age.
 
-1\) The age range of the study is 15-29 in accordance with the ILO definition of the school-to-work transition. however we understand that there are many factors that might not be captured by the model but which affect baseline probability of employment due to age. while we can account for level of completed education, there could be a number of issues in terms of labor market entry for young workforce, including young professionals.
+Another source of endogeneity would refer to the spatial factors. Russia is a big and populated federal state, with explicit spatial disparities in access to the labor market. Unobserved and not included into the estimation, these factors inevitably affect a baseline probability of career entry, with the individuals sharing the same individual characteristics having different chances of getting a job purely due to the regional segregation of the labor market. In other words, within- and between-regional variation need to be separated in the model, which is accomplished through the random intercept term for region.
 
-2\) Russia is a big federal state, and there is a number of unobserved, systemic factors of labor demand and supply that affect employment at the regional level. In other words, country regions establish huge heterogeneity in employment of youth.
+These considerations are reflected in the main model of the study, that in addition to the outlined random terms in predicting employment through Big Five personality traits also controls for sex, area of residence, year of survey, income per capita percentile group as a proxy for SES, current education attendance and highest level of education completed. However, two supplementary research questions are reflected in two additional mixed effects models carried out in this study.
 
-3\) Finally, existing structures of socio-economic inequality make substantial footprint on school-to-work transition of young people, with youth from the richer households having access to better schools, parents being included in professional networks , which results in having more default options for youth to find a job. with that regard, the poor , who experience greater risks of lacking access to social lifts to elevate their status in the society, might also experience higher risks of unemployment either due to the lower human capital they possess or due to other factors. with that regard, for the purpose of labor policy it is essentially important to understand which non-cognitive skills could help economically disadvantaged youth have access to jobs.
+Needs to be taken into account that existing structures of socio-economic inequality make substantial footprint on school-to-work transition of young people, with youth from the richer households having access to better schools, parents being included in networks , which results in having more default options for youth to find a job. With that regard, the poor, who experience greater risks of lacking access to social lifts to elevate their status in the society, might also face higher risks of unemployment due to the lower human capital they possess. With that regard, for the purpose of labor policy it is essentially important to understand which non-cognitive skills could help economically disadvantaged youth have access to jobs. For that, a second model adopts the random slope terms of non-cognitive skills by the income percentile groups.
 
-These issues can be well resolved by the multilevel (mixed-effect) regression model.
-
-describe briefly what it is and what are the advantages of this model in the context of research question.
-
-we built two mixed effect models to address the research questions.
-
-the first one regresses binary variable employment on (fixed part) sex, area of residence, parental education, parental occupation (?), NCS
+Finally, different levels of education would also result in different likelihoods of having a job. It also can be assumed that non-cognitive skills might affect differently the probability of employment for those with and without higher education. As this effect could be heterogeneous, the verification model should take it into account through the random slope term of the Big Five traits by the highest level of education completed. This is done in the third calculated model. The data analysis for the study was carried out in R [@R], an open-source software for the statistical computing. The mixed-effects regression models were computed using the lme4 package [@bates2015].
 
 ## Results
 
-### Non-Cognitive Skills of Youth (NCS) 
+### Differences in Non-Cognitive Skills
 
-*Egorova*
-
-Here we need a table or a chart with differences in NCS by employment status
+Box plot with three facets: employment status, Income percentile, Higher Education
 
 ### Effect of Non-Cognitive Skills on Employment Outcomes
 
-*Avanesian*
+Baseline regression model
 
-We need to have three regression models
+### Skills Produce Different Effects by Socio-Economic Status
+
+### Does Level of Education Increase the Effect of Non-Cognitive Skills?
 
 ## Discussion
 
-*Masych, Dikaya*
+## Research Limitations
 
-### Research Limitations
+1\) Quality of data due to the misingness and attrition makes the data potentially highly prone to sample selection bias.
 
-*Avanesian*
+Based on the provided methodology section, here are potential research limitations and suggestions to address them. I've considered the mentioned data missingness and sample selection bias, as well as other potential issues:
+
+1.  **Missing Data and Sample Selection Bias:**
+
+    -   *Limitation*: The data suffers from missingness, which can lead to sample selection bias.
+
+    -   *Suggestion*:
+
+        -   Implement multiple imputation techniques to handle missing data. This involves creating multiple datasets with imputed values for missing observations and then combining the results from analyzing these datasets. R packages like 'mice' or 'Amelia' can be used for this purpose.
+
+        -   Perform sensitivity analyses to assess the impact of different missing data handling strategies on the results.
+
+        -   Consider using inverse probability of censoring weighting (IPCW) or other techniques to address sample selection bias due to missing data.
+
+2.  **Unbalanced Panel and Attrition:**
+
+    -   *Limitation*: The panel is unbalanced, with a substantial share of observations having only one record, and there might be attrition bias.
+
+    -   *Suggestion*:
+
+        -   Investigate the reasons for attrition and compare the characteristics of individuals who dropped out with those who remained in the panel.
+
+        -   Consider using techniques like inverse probability of attrition weighting (IPAW) or shared frailty models to account for attrition bias.
+
+3.  **Endogeneity:**
+
+    -   *Limitation*: The study acknowledges endogeneity due to unobserved heterogeneity at multiple levels (age, region, etc.).
+
+    -   *Suggestion*:
+
+        -   While mixed-effects models help control for endogeneity, consider using instrumental variable (IV) approaches or difference-in-differences (DID) methods for specific research questions where suitable instruments or comparison groups can be identified.
+
+        -   Collect more detailed information in future studies to account for additional unobserved factors.
+
+4.  **Measurement Error:**
+
+    -   *Limitation*: Self-reported data on non-cognitive skills and employment outcomes might be subject to measurement error and social desirability bias.
+
+    -   *Suggestion*:
+
+        -   Consider using objective measures of non-cognitive skills (e.g., cognitive tests, observational studies) or validated scales in future research.
+
+        -   Collect data from multiple sources (e.g., respondents and their parents or teachers) to triangulate information.
+
+5.  **Longitudinal Analysis:**
+
+    -   *Limitation*: The study uses a longitudinal dataset but doesn't explicitly address time-varying covariates or dynamic effects.
+
+    -   *Suggestion*:
+
+        -   Incorporate time-varying covariates in the mixed-effects models to capture changes in individual characteristics over time.
+
+        -   Consider using growth curve models or other advanced longitudinal techniques to analyze dynamic effects.
+
+6.  **Interactions and Non-linear Effects:**
+
+    -   *Limitation*: The study focuses on linear effects and interactions, but non-cognitive skills might have non-linear effects on employment outcomes.
+
+    -   *Suggestion*:
+
+        -   Include quadratic or polynomial terms for non-cognitive skills in the models to capture non-linear effects.
+
+        -   Consider using machine learning techniques or non-parametric approaches to model complex relationships.
+
+By addressing these limitations, you can strengthen the validity and robustness of your research findings.
 
 ## Policy Implications
 
-*Masych*
-
 ## Conclusion
-
-*Avanesian*
 
 ## References

@@ -51,3 +51,5 @@ rsconnect/
 
 # File with DS Store in its name
 .DS_Store
+
+.pdf

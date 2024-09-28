@@ -67,7 +67,7 @@ Finally, different levels of education would also result in different likelihood
 
 Box plot with three facets: employment status, Income percentile, Higher Education
 
-### Effect of Non-Cognitive Skills on Employment Outcomes
+### Effect of Non-Cognitive Skills on Employment 
 
 Baseline regression model
 

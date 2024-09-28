@@ -29,6 +29,8 @@ data_hh28 <-
                              T ~ as.numeric(NA))) %>%
   select(windex5, family, Income, windex, number_of_fmem, xredid_h, xa3, xid_h, windex, x, region)
 
+# View(data_hh28)
+
 data_hi28 <- 
   hi28 %>%
   select(idind, xredid_i, status, xh5, xj1, x_age, xid_h,  xj161.3y, xj161.3m,
@@ -71,8 +73,10 @@ data_hi28 <-
 ses_data28 <-  
   data_hh28 %>%
   select(xid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
-  mutate(Income1 = ifelse(is.na(Income), median(Income, na.rm = T), Income),
-         hh_pers = ifelse(is.na(number_of_fmem), median(number_of_fmem, na.rm = T), number_of_fmem)) %>%
+  mutate(Income1 = case_when(is.na(Income) ~ median(Income, na.rm = T), 
+                             TRUE ~ Income),
+         hh_pers = case_when(is.na(number_of_fmem) ~ mean(number_of_fmem, na.rm = T), 
+                             TRUE ~ number_of_fmem)) %>%
   mutate(Income_pc = Income1/number_of_fmem) %>%
   mutate(ses5 = ntile(Income_pc, 5),
          ses10 = ntile(Income_pc, 10),
@@ -125,6 +129,8 @@ data_nc28 <-
          ES = scale(rowMeans(data_nc28[em_st], na.rm = T),center = TRUE, scale = TRUE),
          G = scale(rowMeans(data_nc28[grit], na.rm = T),center = TRUE, scale = TRUE)) %>%
   select(idind,  O, C, E, A, ES, G)
+
+# View(data_nc28)
 
 data_master28 <- 
   data_hi28 %>%

@@ -71,15 +71,19 @@ data_hi25 <-
 ses_data25 <-  
   data_hh25 %>%
   select(uid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
-  mutate(Income1 = ifelse(is.na(Income), median(Income, na.rm = T), Income),
-         hh_pers = ifelse(is.na(number_of_fmem), median(number_of_fmem, na.rm = T), number_of_fmem)) %>%
+  mutate(Income1 = case_when(is.na(Income) ~ median(Income, na.rm = T), 
+                             TRUE ~ Income),
+         hh_pers = case_when(is.na(number_of_fmem) ~ mean(number_of_fmem, na.rm = T), 
+                             TRUE ~ number_of_fmem)) %>%
   mutate(Income_pc = Income1/number_of_fmem) %>%
   mutate(ses5 = ntile(Income_pc, 5),
          ses10 = ntile(Income_pc, 10),
          ses = case_when(ses10 %in% (1:4) ~ "1. Bottom 40%",
                          ses10 %in% (5:9) ~ "2. Middle 50%",
                          ses10 == 10 ~ "3. Top 10%")) %>%
-  select(uid_h, ses5, region, ses10, ses)
+  select(uid_h, ses5, region, ses10, ses, Income_pc, Income, Income1)
+
+View(ses_data25)
 
 openness <- c("o1", "o2", "o3") 
 con <- c("c1", "c2", "c3")
@@ -135,5 +139,8 @@ data_master25 <-
          region = as_factor(region)) %>% 
   select(O, C, E, A, ES, G, ses5, area, sex, age, h_edu, working, seeking_empl, exp, life_satis, 
          self_p_SES, in_education, family_id, salary, region, ses, wave, idind)
+
+# dim(data_hi25)
+# dim(data_master25)
 
 saveRDS(data_master25, file.path(outData, "rlms_youth25.rds"))

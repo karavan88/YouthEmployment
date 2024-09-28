@@ -30,7 +30,8 @@ required_packages <- c("tidyverse",
                        "ggpubr",
                        "DescTools", 
                        "lme4",
-                       "ggeffects")
+                       "ggeffects", 
+                       "sjPlot")
 
 
 # Function to check and install packages

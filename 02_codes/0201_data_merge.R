@@ -8,12 +8,12 @@
 
 source(file.path(rcodes, "0200_load_packages.R"))
 
-non_cogn  <- read_sav("01_input_data/r28i_open_2023.sav")
-hi        <- read_sav("01_input_data/r28iall_61.sav")
-hh        <- read_sav("01_input_data/r28hall_61.sav")
+non_cogn28  <- read_sav("01_input_data/r28i_open_2023.sav")
+hi28        <- read_sav("01_input_data/r28iall_61.sav")
+hh28        <- read_sav("01_input_data/r28hall_61.sav")
 
-data_hh <-
-  hh %>%
+data_hh28 <-
+  hh28 %>%
   select(xb1.o, xf14, xa3, xredid_h, xid_h, region) %>%
   replace_with_na(replace = list(xf14 = c(99999997, 99999998, 99999999))) %>%
   mutate(x = xf14/xb1.o,
@@ -29,8 +29,8 @@ data_hh <-
                              T ~ as.numeric(NA))) %>%
   select(windex5, family, Income, windex, number_of_fmem, xredid_h, xa3, xid_h, windex, x, region)
 
-data_hi <- 
-  hi %>%
+data_hi28 <- 
+  hi28 %>%
   select(idind, xredid_i, status, xh5, xj1, x_age, xid_h,  xj161.3y, xj161.3m,
          xj70.2, xj72.1a, xj72.2a, xj72.3a, xj72.4a, xj72.5a, xj72.6a, xj81, 
          x_inwgt, x_diplom, xh3, xj65, xj62, xj322, xj72.171, xm3, xj13.2) %>%
@@ -66,10 +66,10 @@ data_hi <-
          salary = xj13.2) %>%
   select(idind, xredid_i, xid_h,  area, gender, age, h_edu, working, seeking_empl, exp, life_satis, 
          self_p_SES, in_education, family_id, salary, x_inwgt, xj62) %>%
-  filter(age >= 15 & age <= 29)
+  filter(age >= 15 & age <= 34)
 
-ses_data <-  
-  data_hh %>%
+ses_data28 <-  
+  data_hh28 %>%
   select(xid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
   mutate(Income1 = ifelse(is.na(Income), median(Income, na.rm = T), Income),
          hh_pers = ifelse(is.na(number_of_fmem), median(number_of_fmem, na.rm = T), number_of_fmem)) %>%
@@ -88,8 +88,8 @@ ag <- c("a1", "a2", "a3")
 em_st <- c("es1", "es2", "es3") 
 grit <- c("g1", "g2", "g3")
 
-data_nc <- 
-  non_cogn %>%
+data_nc28 <- 
+  non_cogn28 %>%
   select(xj445.3, xj445.11, xj445.14,
          xj445.2, xj445.12, xj445.17,
          xj445.1, xj445.4, xj445.20,
@@ -116,26 +116,28 @@ data_nc <-
          g2 = 5 - xj445.8,
          g3 = 5 - xj445.13) 
 
-data_nc <- 
-  data_nc %>%
-  mutate(O = scale(rowMeans(data_nc[openness], na.rm = T),center = TRUE, scale = TRUE),
-         C = scale(rowMeans(data_nc[con], na.rm = T),center = TRUE, scale = TRUE),
-         E = scale(rowMeans(data_nc[ex], na.rm = T),center = TRUE, scale = TRUE),
-         A = scale(rowMeans(data_nc[ag], na.rm = T),center = TRUE, scale = TRUE),
-         ES = scale(rowMeans(data_nc[em_st], na.rm = T),center = TRUE, scale = TRUE),
-         G = scale(rowMeans(data_nc[grit], na.rm = T),center = TRUE, scale = TRUE)) %>%
+data_nc28 <- 
+  data_nc28 %>%
+  mutate(O = scale(rowMeans(data_nc28[openness], na.rm = T),center = TRUE, scale = TRUE),
+         C = scale(rowMeans(data_nc28[con], na.rm = T),center = TRUE, scale = TRUE),
+         E = scale(rowMeans(data_nc28[ex], na.rm = T),center = TRUE, scale = TRUE),
+         A = scale(rowMeans(data_nc28[ag], na.rm = T),center = TRUE, scale = TRUE),
+         ES = scale(rowMeans(data_nc28[em_st], na.rm = T),center = TRUE, scale = TRUE),
+         G = scale(rowMeans(data_nc28[grit], na.rm = T),center = TRUE, scale = TRUE)) %>%
   select(idind,  O, C, E, A, ES, G)
 
-data_master <- 
-  data_hi %>%
-  left_join(data_nc) %>%
-  left_join(ses_data) %>%
+data_master28 <- 
+  data_hi28 %>%
+  left_join(data_nc28) %>%
+  left_join(ses_data28) %>%
   mutate(ses = factor(ses),
          area = factor(area),
          sex = factor(gender),
-         h_edu = factor(h_edu)) %>% 
+         h_edu = factor(h_edu),
+         wave = "28",
+         region = as_factor(region)) %>% 
   select(O, C, E, A, ES, G, ses5, area, sex, age, h_edu, working, seeking_empl, exp, life_satis, 
-         self_p_SES, in_education, family_id, salary, x_inwgt, xj62, region, ses)
+         self_p_SES, in_education, family_id, salary, region, ses, wave, idind)
 
-saveRDS(data_master, file.path(outData, "rlms_youth.rds"))
+saveRDS(data_master28, file.path(outData, "rlms_youth28.rds"))
      

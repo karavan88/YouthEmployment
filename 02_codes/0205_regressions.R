@@ -12,23 +12,25 @@
 master <- readRDS(file.path(outData, "model_data.rds"))
 
 m1 <- lmer(working ~ sex + in_education + ses + h_edu + area +  
-               O + C + E + A + ES + 
+               O + C + E + A + ES + G +
                (1|region) + (1|age) + (1|wave) + (1|idind),
              REML = F, data = master)
 
 summary(m1)
 
 m2 <- lmer(working ~ sex + in_education  + h_edu + area +  
-               O + C + E + A + ES + 
+               O + C + E + A + ES + G +
                (1|region) + (1|age) + (1|wave) + (1|idind) +
-               (1 + O + C + E + A + ES | ses),
+               (1 + O + C + E + A + ES + G | ses),
              REML = F, data = master)
+
+summary(m2)
 
 mlm_ha_by_ses =
   coef(m2)$`ses` %>%
   as.data.frame() %>%
   rownames_to_column(var = "ses") %>%
-  select(ses, O, C, E, A, ES) %>%
+  select(ses, O, C, E, A, ES, G) %>%
   gather(Skill, Estimate, -ses) %>%
   mutate(Estimate = as.numeric(Estimate)*100)
 

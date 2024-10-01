@@ -12,14 +12,18 @@ wave28 <- readRDS(file.path(outData, "rlms_youth28.rds"))
 master <- 
   wave25 %>%
   full_join(wave28) %>%
+  filter(age >= 15 & age <= 34) %>%
+  mutate(hh_id_fin = case_when(!is.na(hhid28) ~ hhid28,
+                           TRUE ~ as.numeric(paste0("25", hhid25)))) %>%
+  #group_by(hh_id_fin) %>%
   group_by(idind) %>%
   mutate(n = 1) %>%
   mutate(n_total = sum(n)) %>%
   # SELECT ONLY VARIABLES NEEDED FOR ESTIMATION
-  select(idind, family_id, wave, region, # id vars
+  select(idind, family_id, wave, region, hhid25, hhid28, hh_id_fin, # id vars
          sex, age, area, ses, ses5, # socio-demographic and hh characteristics
          working,  in_education, h_edu, # exp,
-         O, C, E, A, ES, # big five traits
+         O, C, E, A, ES, G, # big five traits
          n, n_total) %>%
   mutate(in_education = case_when(in_education == 1 ~ in_education,
                                   TRUE ~ 0)) %>%
@@ -33,6 +37,3 @@ master <-
 # View(master)
 
 saveRDS(master, file.path(outData, "model_data.rds"))
-
-
-

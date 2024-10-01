@@ -14,6 +14,7 @@ data_hh25 <-
   hh25 %>%
   select(ub1.o, uf14, ua3, UREDID_H, UID_H, region) %>%
   replace_with_na(replace = list(uf14 = c(99999997, 99999998, 99999999))) %>%
+  mutate(hhid25 = UID_H) %>%
   mutate(x = uf14/ub1.o,
          number_of_fmem = ub1.o,
          windex = percent_rank(x),
@@ -27,12 +28,13 @@ data_hh25 <-
                              T ~ as.numeric(NA)),
          uredid_h = UREDID_H,
          uid_h = UID_H) %>%
-  select(windex5, family, Income, windex, number_of_fmem, uredid_h, ua3, uid_h, windex, x, region)
+  select(hhid25, windex5, family, Income, windex, number_of_fmem, 
+         uredid_h, ua3, uid_h, windex, x, region)
 
 data_hi25 <- 
   hi25 %>%
   select(idind, uredid_i, status, uh5, uj1, u_age, uid_h,  uj161.3y, uj161.3m,
-         uj70.2, uj72.1a, uj72.2a, uj72.3a, uj72.4a, uj72.5a, uj72.6a, uj81, 
+         uj70.2, uj72.1a, uj72.2a, uj72.3a, uj72.4a, uj72.5a, uj72.6a, uj81, uj1.1.1,
          u_inwgt, u_diplom, uh3, uj65, uj62, uj322, uj72.171, um3, uj13.2) %>%
   replace_with_na_all(condition ~.x %in% c(99999996, 99999997, 99999998, 99999999)) %>%
   mutate(area = case_when(status %in% c(1,2) ~ "urban",
@@ -64,13 +66,14 @@ data_hi25 <-
          family_id = uh3, 
          seeking_empl = ifelse(uj81 == 1, 1, 0),
          salary = uj13.2) %>%
+  mutate(job_satisfaction = case_when(uj81 %in% c(1,2) ~ 1, TRUE ~ 0 )) %>%
   select(idind, uredid_i, uid_h,  area, gender, age, h_edu, working, seeking_empl, exp, life_satis, 
-         self_p_SES, in_education, family_id, salary, u_inwgt, uj62) %>%
-  filter(age >= 15 & age <= 29)
+          self_p_SES, in_education, family_id, salary, u_inwgt, uj62) #%>%
+  # filter(age >= 15 & age <= 29)
 
 ses_data25 <-  
   data_hh25 %>%
-  select(uid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
+  # select(uid_h, Income, number_of_fmem , windex, windex5,  x, region) %>%
   mutate(Income1 = case_when(is.na(Income) ~ median(Income, na.rm = T), 
                              TRUE ~ Income),
          hh_pers = case_when(is.na(number_of_fmem) ~ mean(number_of_fmem, na.rm = T), 
@@ -81,9 +84,9 @@ ses_data25 <-
          ses = case_when(ses10 %in% (1:4) ~ "1. Bottom 40%",
                          ses10 %in% (5:9) ~ "2. Middle 50%",
                          ses10 == 10 ~ "3. Top 10%")) %>%
-  select(uid_h, ses5, region, ses10, ses, Income_pc, Income, Income1)
+  select(hhid25, uid_h, ses5, region, ses10, ses, Income_pc, Income, Income1)
 
-View(ses_data25)
+# View(ses_data25)
 
 openness <- c("o1", "o2", "o3") 
 con <- c("c1", "c2", "c3")
@@ -138,7 +141,7 @@ data_master25 <-
          wave = "25",
          region = as_factor(region)) %>% 
   select(O, C, E, A, ES, G, ses5, area, sex, age, h_edu, working, seeking_empl, exp, life_satis, 
-         self_p_SES, in_education, family_id, salary, region, ses, wave, idind)
+         self_p_SES, in_education, family_id, salary, region, ses, wave, idind, hhid25)
 
 # dim(data_hi25)
 # dim(data_master25)

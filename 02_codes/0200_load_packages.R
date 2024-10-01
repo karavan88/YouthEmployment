@@ -29,6 +29,7 @@ required_packages <- c("tidyverse",
                        "naniar",
                        "ggpubr",
                        "DescTools", 
+                       "modelsummary",
                        "lme4",
                        "ggeffects", 
                        "sjPlot")

@@ -1,7 +1,16 @@
 ---
-title: "Do Non-Cognitive Skills Affect Employment Outcomes of Youth During the School-to-Work Transition?" 
+title: "Do Non-Cognitive Skills Affect Employment of Youth During the School-to-Work Transition?" 
 author: "Garen Avanesian, Southern Federal University"
-format: pdf
+format: 
+  pdf:
+    geometry: 
+      - top=30mm
+      - left=30mm
+      - right=30mm
+    documentclass: article
+    number-sections: true
+    colorlinks: true
+    colorurl: true
 editor: visual
 bibliography: references.bib
 biblio-style: bwl-FU
@@ -11,17 +20,36 @@ csl: "apa-with-abstract.csl"
 
 **Abstract**
 
-The study analyses the impact of non-cognitive skills on employment outcomes of youth aged 15-29 during the school-to-work transition in Russia. Based on the data of the Russian Longitudinal Monitoring Survey collected in 20XX. Adopting a mixed-effects model approach, the study aims to estimate if the effect of non-cognitive skills on employment is heterogeneous due to the income level and completed level of education. The study finds out that......
+The study analyses the impact of non-cognitive skills on employment of youth aged 15-29 during the school-to-work transition in Russia. Based on the data of the Russian Longitudinal Monitoring Survey collected in 20XX. Adopting a mixed-effects model approach, the study aims to estimate if the effect of non-cognitive skills on employment is heterogeneous due to the income level and completed level of education. The study finds out that......
 
 **Key words:** non-cognitive skills, school-to-work transition, human capital, personality traits, big five, socio-economic status, mixed-effects models
 
 **JEL Codes:** I24, J24; C51
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
+```
+
+```{r wd set up, include=FALSE}
+# set up the path
+path = "/Users/karavan88/Documents/GitHub/youth_empl_ncs"
+
+```
+
+```{r source files, include=FALSE}
+source(file.path(path, "user_profile.R"))
+source(file.path(rCodes, "0200_load_packages.R"))
+# source(file.path(rCodes, "02_descriptive.R"))
+# source(file.path(rCodes, "03_model.R"))
+
+
+```
+
 \newpage
 
 ## Introduction
 
-The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. Importance of school-to-work transition is emphasized by the fact that it has long-term implications on socio-economic outcomes of individuals beyond youth period: while success in getting a first job that matches skills and expectations constitutes the further path to occupational success, early non-employment or poor transition to the world of work have long-lasting and negative implications on professional outcomes and beyond [@akkermans2021; @zacher2021; @baert2013; @luijkx2009; @verbruggen2015]. Moreover, the evidence points out that "association between having a high level of education and securing permanent full-time employment is weaker than expected" and level of education does not lead to the higher levels of job satisfaction [@chesters2020]. While there are many approaches to the definitions of school-to-work transition, their extensive survey is provided in [@blokker2023]. In this work, I rely on the one that is provided by ILO and defines it "as the passage of a young person (aged 15 to 29 years13) from the end of schooling to the first fixed-term or satisfactory employment" [@ilo2010, p. 4]. With that respect, each young person aged 15-29 is classified under the following categories: (1) transition not yet started for those who are either in school or not in school, inactive and with no intention to look for a job; (2) in transition, for those who are either unemployed, or in unsatisfactory self-employment temporary job, in unpaid family employment, or not in school but searching for a job; (3) transited, for those who are either in fixed-term employment or in satisfactory temporary or self-employment. While Sustainable Development Goals define youth as the population in the age 15 to 24 yeras old, ILO extended the upper bound to acknowledge that many young women and men remain in education till 24 years, and a wider age frame is required to capture employment experiences of youth post graduation.
+The transition from school to work represents a pivotal phase in the lives of young individuals, marked by decisions that significantly shape their future careers and overall lives. Importance of school-to-work transition is emphasized by the fact that it has long-term implications on socio-economic outcomes of individuals beyond youth period: while success in getting a first job that matches skills and expectations constitutes the further path to occupational success, early non-employment or poor transition to the world of work have long-lasting and negative implications on professional outcomes and beyond [@akkermans2021; @zacher2021; @baert2013; @luijkx2009; @verbruggen2015]. Moreover, the evidence points out that "association between having a high level of education and securing permanent full-time employment is weaker than expected" and level of education does not lead to the higher levels of job satisfaction [@chesters2020]. While there are many approaches to the definitions of school-to-work transition, their extensive survey is provided in [@blokker2023]. In this work, I rely on the one that is provided by ILO and defines it "as the passage of a young person (aged 15 to 29 years) from the end of schooling to the first fixed-term or satisfactory employment" [@ilo2010, p. 4]. With that respect, each young person aged 15-29 is classified under the following categories: (1) transition not yet started for those who are either in school or not in school, inactive and with no intention to look for a job; (2) in transition, for those who are either unemployed, or in unsatisfactory self-employment temporary job, in unpaid family employment, or not in school but searching for a job; (3) transited, for those who are either in fixed-term employment or in satisfactory temporary or self-employment. While Sustainable Development Goals define youth as the population in the age 15 to 24 yeras old, ILO extended the upper bound to acknowledge that many young women and men remain in education till 24 years, and a wider age frame is required to capture employment experiences of youth post graduation.
 
 The success of school-to-work transition, i.e., if a young person finds a decent job, is determined by various factors such as education, training, as well as supply and demand for qualified workforce on the labor market. Those young people who, in addition to being unemployed, also do not study, constitute the most vulnerable group in the school-to-work transition and are defined as not in education, employment, or training (NEET). In the recent past, two events amplified vulnerability of youth in terms of labor market outcomes: the Great recession of 2009 and the COVID-19 outbreak. The evidence points out that the financial crisis substantially challenged the integration of young people on the labor market all over the world [@tanveerchoudhry2012; @kelly2015; @verick2011; @verd2019; @montalvao2017]. Sone time later, young people generally and youth employment specifically were put at the center of the global sustainable development agenda, summarized in Sustainable Development Goal 8 on decent jobs and economic growth (e.g., SDG 8.6: Promote Youth Employment, Education and Training). However, the global pandemic happened in 2019 amplified the labor market challenges faced by the global community. It "has heightened the level of uncertainty experienced by many young people worldwide and has complicated the developmental tasks associated with the transition to adulthood, including leaving home, completing education, and obtaining full-time employment" [@allmang2022]. The initial pandemic estimates suggested that young people were hit more than others by job loss, fell in working hours and faced substantial drops of income [@ilo2020youth]. It was estimated that as the result of the pandemic shock in 2020, global youth employment rates fell by 8.7% in comparison to a 3.7 % drop for adults [@ilo2021].
 
@@ -35,7 +63,7 @@ A few studies were exploring the role of non-cognitive skills measured by BFI wi
 
 Another research pillar explored the effect of non-cognitive skills on school-to-work transition beyond Big Five personality traits. The large body of work indicates the special role of self-efficacy in the school-to-work transition [@lent1999; @emirza2021; @tolentino2018; @masdonati2021; @grosemans2018]. The concept was introduced by psychologist A. Bandura who made it central in his social cognitive theory and defined it as the mechanism of personal agency that "refers to beliefs in one’s capabilities to organize and execute the courses of action required to manage prospective situations" [@self-eff1995, p. 2]. To put it simpler, this non-cognitive characteristics refers to personal belief in achieving a certain task or accomplishing a goal. With that respect, being convinced in the success of getting the job does not guarantee that a person will get it, but it produces the behaviors, actions and attitudes that in the end facilitate achievement of this goal. In that light, this concept is somewhat similar to another psychological concept of locus of control, as both are the expressions of personal agency. Defined as an extent to which people believe to have control of events in their life as opposed to external forces, this non-cognitive characteristic may partially help to compensate for socio-economic disadvantage regarding avoidance of economic inactivity and unemployment to some extent; however, it did not prove to provide protection against long-term economic inactivity, i.e. if an individual spent more than 6 months spent not in education, employment or training [@ng-knight2017].
 
-Current study explores the effect of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. The Russian data highlights that youth has the highest unemployment rates: in 2022, they accounted for 26% for 15-19 year olds, 13.6% for 20-24 year olds, and 5.2% for 25-29 year olds. This is compared to 2.8% of unemployment for individuals in the age of 40 to 44 year olds, the lowest value in the sample [@rosstat2024, p. 122]. Further, out of all higher education graduates between 2020-2022 who find a job, for 24% the obtained employment does not match the received profession. Finally, the available national data evidence that the labor market in the country demonstrates unprecedented spatial segregation: with the 4% as a country's average unemployment in 2022, it varies in the range between 1.6% in Yamalo-Nenets Autonomous Okrug and 30% in Republic of Ingushetia.[^1]
+Current study explores the effect of non-cognitive skills on employment outcomes of youth aged 15-29 during school-to-work transition in Russia. The Russian official statistics highlights that youth has the highest unemployment rates: in 2022, they accounted for 26% for 15-19 year olds, 13.6% for 20-24 year olds, and 5.2% for 25-29 year olds. This is compared to 2.8% of unemployment for individuals in the age of 40 to 44 year olds, the lowest value by the age cohort breakdown [@rosstat2024, p. 122]. Further, out of all higher education graduates between 2020-2022 who found a job, for 24% the obtained employment does not match the received profession. Finally, the available national data evidence that the labor market in the country demonstrates unprecedented spatial segregation: with the 4% as a country's average unemployment in 2022, it varies in the range between 1.6% in Yamalo-Nenets Autonomous Okrug and 30% in Republic of Ingushetia.[^1]
 
 [^1]: The Rosstat data were accessed on 24 September 2024, via the following link: <https://rosstat.gov.ru/storage/mediabank/Trud_3_15-s.xlsx>
 
@@ -44,6 +72,10 @@ Based on data of Russia Longitudinal Monitoring Survey (RLMS), this study aims t
 ## Data
 
 The data used in this study is comprised of two waves of Russia Longitudinal Monitoring Survey, the one in 2016 and 2019 as these years correspond to the ones when information on Big Five personality traits was collected. Sample those who were 15-29 years old in 2016 was extracted, which resulted in the fact that some of those respondents present in the 2016 wave were 33 years old in 2019. This was done for the completeness of the sample. It needs to be noted that the selected variables on non-cognitive skills substantially suffered from the missingness. If a respondent was present in both waves and responded provided a needed information in at least one of the waves, this value was used to impute and use in the estimation. This was done based on the assumption that personality traits are stable in the adulthood (ref). The final data accounted for XXXX observations in total, XXXX coming from the 2016 wave and XXXX from the 2019 wave. Out of them, XXXX observations were present in both waves. The summary statistics are presented on Table 1.
+
+```{r}
+
+```
 
 ## Methodology
 
@@ -65,15 +97,31 @@ Finally, different levels of education would also result in different likelihood
 
 ### Differences in Non-Cognitive Skills
 
+```{r}
+
+```
+
 Box plot with three facets: employment status, Income percentile, Higher Education
 
-### Effect of Non-Cognitive Skills on Employment 
+### Effect of Non-Cognitive Skills on Employment
 
 Baseline regression model
 
+```{r}
+
+```
+
 ### Skills Produce Different Effects by Socio-Economic Status
 
+```{r}
+
+```
+
 ### Does Level of Education Increase the Effect of Non-Cognitive Skills?
+
+```{r}
+
+```
 
 ## Discussion
 
@@ -87,6 +135,6 @@ Finally, though mixed-effects model estimates the effect of non-cognitive skills
 
 ## Policy Implications
 
-## Conclusion
+## Conclusions
 
 ## References
